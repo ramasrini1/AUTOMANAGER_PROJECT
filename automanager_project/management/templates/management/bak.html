@@ -1,0 +1,79 @@
+{% extends "management/sidebar.html" %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <h2>New Customer</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="street">Street Name</label>
+                    <input type="text" name="street" class="form-control" id="street" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" name="city" class="form-control" id="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="state1">State</label>
+                    <input type="text" name="state1" class="form-control" id="state1" required>
+                </div>
+                <div class="form-group">
+                    <label for="zipcode">ZipCode</label>
+                    <input type="text" name="zipcode" class="form-control" id="zipcode" required>
+                </div>
+                <div class="form-group">
+                  <label for="mobile">Mobile</label>
+                  <input type="text" name="mobile" class="form-control" id="mobile">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="text" name="email" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="make">Make</label>
+                    <input type="text" name="make" class="form-control" id="make">
+                </div>
+                <div class="form-group">
+                    <label for="model">Model</label>
+                    <input type="text" name="model" class="form-control" id="model">
+                </div>
+                <div class="form-group">
+                    <label for="series">Series</label>
+                    <input type="text" name="series" class="form-control" id="series">
+                </div>
+                <div class="form-group">
+                    <label for="vin">Vin Number</label>
+                    <input type="text" name="vin" class="form-control" id="vin">
+                </div>
+                <div class="form-group">
+                    <label for="lic">Licence Number</label>
+                    <input type="text" name="lic" class="form-control" id="lic">
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" name="state" class="form-control" id="state">
+                </div>
+                <div class="form-group">
+                    <label for="memo">Memo</label>
+                    <textarea name="memo" class="form-control" id="memo" ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+            
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "management/sidebar.html" %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            <h1>Customer Info</h1>
+            <br>
+        </div>
+    </div>
+
+    <div style="text-align:center; align-content:center; margin-left: 2%; border: 1px solid black;">
+       
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                 <span><b>Customer Info</b></span><br>
+                 {{customer.name}}<br>
+                 {{customer.street}}<br>
+                 {{customer.city}} {{customer.zipcode}}<br><br>
+            </div>
+            <div class="col-md-6 col-md-6 col-sm-6">
+                <span><b>Customer Contact</b></span><br>
+                 {{customer.mobile}}<br>
+                 {{customer.email}}<br>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <span><b>Make</b></span><br>
+                 {{customer.make}}<br>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <span><b>Model</b></span><br>
+                  {{customer.model}}<br>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <span><b>Series</b></span><br>
+                  {{customer.series}}<br>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                 <br><span><b>Licence</b></span><br>
+                 {{customer.lic}}<br>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                  <br><span><b>Vin Number</b></span><br>
+                  {{customer.vin}}<br>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                  <br><span><b>State</b></span><br>
+                  {{customer.state}}<br>
+            </div>
+        </div>
+        <div class="row">
+            <div class= "col-lg-12 col-md-12 col-sm-12">
+                <div style="border: .5px solid grey; margin-top: 5px;">
+                    <div style="text-align:left; align-content:left; margin-left: 5%; margin-top:5px">
+                        <span><b>Memo</b></span><br>{{customer.memo}}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <br> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <form  method="POST" 
+                    action="{% url 'editcustomer' customer.id %}">
+                    {% csrf_token %}
+                    <button class="btn btn-primary" id="edit" type="submit">Edit</button>
+                </form>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+              <button class="btn btn-primary" type="submit">Invoice</button>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+              <button class="btn btn-primary" type="submit">Email</button>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <form  method="POST" 
+                    action="{% url 'deletecustomer' customer.id %}">
+                    {% csrf_token %}
+                    <button class="btn btn-primary" id="delete" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+        
+        <div style=" margin-top: 5px;">
+        </div>
+        
+    </div>
+
+
+{% endblock %}
